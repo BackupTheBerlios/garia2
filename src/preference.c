@@ -74,6 +74,7 @@ void preference_to_gui(GtkWidget *dlg, Preferences *pref)
 	gtk_entry_set_text(GTK_ENTRY(enDownloadDir), pref->download_dir);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(spMaxConcurrentDownloads), pref->max_concurrent_downloads);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkUseScheduler), pref->use_schedule);
+	on_cbUseScheduler_toggled(GTK_TOGGLE_BUTTON(checkUseScheduler), NULL);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(spStartTimeHour), pref->start_time_hour);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(spStartTimeMinute), pref->start_time_minute);
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(spEndTimeHour), pref->end_time_hour);
