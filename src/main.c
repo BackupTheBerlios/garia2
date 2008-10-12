@@ -12,33 +12,36 @@
 #include "interface.h"
 #include "support.h"
 
+#include "garia2.h"
+
+GtkWidget *g_GAria2;
+Preferences g_preference;
+
 int
 main (int argc, char *argv[])
 {
-  GtkWidget *GAria2;
-  GtkWidget *preferences;
-  GtkWidget *aboutdialog;
-  GtkWidget *filechooserdialog;
-  GtkWidget *dialogNew;
+	GtkWidget *filechooserdialog;
 
 #ifdef ENABLE_NLS
-  bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-  textdomain (GETTEXT_PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
 #endif
 
-  gtk_set_locale ();
-  gtk_init (&argc, &argv);
+	gtk_set_locale ();
+	gtk_init (&argc, &argv);
 
-  add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
+	add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
+	load_settings(&g_preference);
+	
   /*
    * The following code was added by Glade to create one of each component
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
-  GAria2 = create_GAria2 ();
-  gtk_widget_show (GAria2);
+	g_GAria2 = create_GAria2 ();
+	gtk_widget_show (g_GAria2);
 
 //  preferences = create_preferences ();
 //  gtk_widget_show (preferences);  

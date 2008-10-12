@@ -8,6 +8,7 @@
 #include "interface.h"
 #include "support.h"
 
+#include "garia2.h"
 
 void
 on_new_activate                        (GtkMenuItem     *menuitem,
@@ -61,7 +62,6 @@ void
 on_quit1_activate                      (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-
 }
 
 
@@ -69,7 +69,21 @@ void
 on_preferences_activate                (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
 {
-
+	GtkWidget *dialog;
+	gint ret;
+	
+	dialog = create_preferences ();
+	preference_to_gui(dialog, &g_preference);
+	ret = gtk_dialog_run(GTK_DIALOG(dialog));
+	switch (ret) {
+	case GTK_RESPONSE_OK:
+		gui_to_preference(dialog, &g_preference);
+		save_settings(&g_preference);
+		break;
+      default:
+         break;
+    }
+	gtk_widget_destroy (dialog);	
 }
 
 

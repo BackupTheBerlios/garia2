@@ -8,10 +8,11 @@ INCLUDES = \
 bin_PROGRAMS = garia2
 
 garia2_SOURCES = \
-	main.c \
+	main.c garia2.h \
 	support.c support.h \
 	interface.c interface.h \
-	callbacks.c callbacks.h
+	callbacks.c callbacks.h \
+	preference.c preference.h
 
 garia2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

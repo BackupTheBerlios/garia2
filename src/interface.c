@@ -278,7 +278,7 @@ create_preferences (void)
   GtkWidget *frame2;
   GtkWidget *alignment2;
   GtkWidget *vbox3;
-  GtkWidget *cbUseScheduler;
+  GtkWidget *checkUseScheduler;
   GtkWidget *table2;
   GtkWidget *label6;
   GtkObject *spStartTimeHour_adj;
@@ -296,7 +296,6 @@ create_preferences (void)
   GtkWidget *spEndTimeMinute;
   GtkWidget *label5;
   GtkWidget *dialog_action_area2;
-  GtkWidget *applybutton1;
   GtkWidget *cancelbutton1;
   GtkWidget *okbutton1;
 
@@ -396,9 +395,9 @@ create_preferences (void)
   gtk_widget_show (vbox3);
   gtk_container_add (GTK_CONTAINER (alignment2), vbox3);
 
-  cbUseScheduler = gtk_check_button_new_with_mnemonic (_("Use scheduler"));
-  gtk_widget_show (cbUseScheduler);
-  gtk_box_pack_start (GTK_BOX (vbox3), cbUseScheduler, FALSE, FALSE, 0);
+  checkUseScheduler = gtk_check_button_new_with_mnemonic (_("Use scheduler"));
+  gtk_widget_show (checkUseScheduler);
+  gtk_box_pack_start (GTK_BOX (vbox3), checkUseScheduler, FALSE, FALSE, 0);
 
   table2 = gtk_table_new (2, 5, FALSE);
   gtk_widget_show (table2);
@@ -483,11 +482,6 @@ create_preferences (void)
   gtk_widget_show (dialog_action_area2);
   gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
 
-  applybutton1 = gtk_button_new_from_stock ("gtk-apply");
-  gtk_widget_show (applybutton1);
-  gtk_dialog_add_action_widget (GTK_DIALOG (preferences), applybutton1, GTK_RESPONSE_APPLY);
-  GTK_WIDGET_SET_FLAGS (applybutton1, GTK_CAN_DEFAULT);
-
   cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
   gtk_widget_show (cancelbutton1);
   gtk_dialog_add_action_widget (GTK_DIALOG (preferences), cancelbutton1, GTK_RESPONSE_CANCEL);
@@ -501,7 +495,7 @@ create_preferences (void)
   g_signal_connect ((gpointer) btnDownloadDir, "clicked",
                     G_CALLBACK (on_btnDownloadDir_clicked),
                     NULL);
-  g_signal_connect ((gpointer) cbUseScheduler, "toggled",
+  g_signal_connect ((gpointer) checkUseScheduler, "toggled",
                     G_CALLBACK (on_cbUseScheduler_toggled),
                     NULL);
 
@@ -524,7 +518,7 @@ create_preferences (void)
   GLADE_HOOKUP_OBJECT (preferences, frame2, "frame2");
   GLADE_HOOKUP_OBJECT (preferences, alignment2, "alignment2");
   GLADE_HOOKUP_OBJECT (preferences, vbox3, "vbox3");
-  GLADE_HOOKUP_OBJECT (preferences, cbUseScheduler, "cbUseScheduler");
+  GLADE_HOOKUP_OBJECT (preferences, checkUseScheduler, "checkUseScheduler");
   GLADE_HOOKUP_OBJECT (preferences, table2, "table2");
   GLADE_HOOKUP_OBJECT (preferences, label6, "label6");
   GLADE_HOOKUP_OBJECT (preferences, spStartTimeHour, "spStartTimeHour");
@@ -538,7 +532,6 @@ create_preferences (void)
   GLADE_HOOKUP_OBJECT (preferences, spEndTimeMinute, "spEndTimeMinute");
   GLADE_HOOKUP_OBJECT (preferences, label5, "label5");
   GLADE_HOOKUP_OBJECT_NO_REF (preferences, dialog_action_area2, "dialog_action_area2");
-  GLADE_HOOKUP_OBJECT (preferences, applybutton1, "applybutton1");
   GLADE_HOOKUP_OBJECT (preferences, cancelbutton1, "cancelbutton1");
   GLADE_HOOKUP_OBJECT (preferences, okbutton1, "okbutton1");
 
@@ -588,7 +581,6 @@ create_filechooserdialog (void)
   g_object_set (filechooserdialog,
                 "show-hidden", TRUE,
                 NULL);
-  GTK_WINDOW (filechooserdialog)->type = GTK_WINDOW_POPUP;
   gtk_window_set_modal (GTK_WINDOW (filechooserdialog), TRUE);
   gtk_window_set_type_hint (GTK_WINDOW (filechooserdialog), GDK_WINDOW_TYPE_HINT_DIALOG);
 
