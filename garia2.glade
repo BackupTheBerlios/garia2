@@ -20,6 +20,7 @@
   <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
   <property name="focus_on_map">True</property>
   <property name="urgency_hint">False</property>
+  <signal name="delete_event" handler="on_GAria2_delete_event" last_modification_time="Sun, 12 Oct 2008 22:23:25 GMT"/>
 
   <child>
     <widget class="GtkVBox" id="vbox1">
@@ -107,7 +108,7 @@
 		      <property name="visible">True</property>
 		      <property name="label">gtk-quit</property>
 		      <property name="use_stock">True</property>
-		      <signal name="activate" handler="on_quit1_activate" last_modification_time="Sun, 12 Oct 2008 18:05:54 GMT"/>
+		      <signal name="activate" handler="on_quit_activate" last_modification_time="Sun, 12 Oct 2008 22:19:09 GMT"/>
 		    </widget>
 		  </child>
 		</widget>
@@ -275,8 +276,8 @@
 	<widget class="GtkScrolledWindow" id="scrolledwindow1">
 	  <property name="visible">True</property>
 	  <property name="can_focus">True</property>
-	  <property name="hscrollbar_policy">GTK_POLICY_ALWAYS</property>
-	  <property name="vscrollbar_policy">GTK_POLICY_ALWAYS</property>
+	  <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+	  <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
 	  <property name="shadow_type">GTK_SHADOW_IN</property>
 	  <property name="window_placement">GTK_CORNER_TOP_LEFT</property>
 

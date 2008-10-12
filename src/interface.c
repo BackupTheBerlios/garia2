@@ -169,12 +169,16 @@ create_GAria2 (void)
   scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
   gtk_widget_show (scrolledwindow1);
   gtk_box_pack_start (GTK_BOX (vbox1), scrolledwindow1, TRUE, TRUE, 0);
+  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_SHADOW_IN);
 
   treeview1 = gtk_tree_view_new ();
   gtk_widget_show (treeview1);
   gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
 
+  g_signal_connect ((gpointer) GAria2, "delete_event",
+                    G_CALLBACK (on_GAria2_delete_event),
+                    NULL);
   g_signal_connect ((gpointer) new1, "activate",
                     G_CALLBACK (on_new_activate),
                     NULL);
@@ -194,7 +198,7 @@ create_GAria2 (void)
                     G_CALLBACK (on_down_activate),
                     NULL);
   g_signal_connect ((gpointer) quit1, "activate",
-                    G_CALLBACK (on_quit1_activate),
+                    G_CALLBACK (on_quit_activate),
                     NULL);
   g_signal_connect ((gpointer) preferences1, "activate",
                     G_CALLBACK (on_preferences_activate),

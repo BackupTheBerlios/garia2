@@ -57,14 +57,6 @@ on_down_activate                       (GtkMenuItem     *menuitem,
 
 }
 
-
-void
-on_quit1_activate                      (GtkMenuItem     *menuitem,
-                                        gpointer         user_data)
-{
-}
-
-
 void
 on_preferences_activate                (GtkMenuItem     *menuitem,
                                         gpointer         user_data)
@@ -112,5 +104,23 @@ on_cbUseScheduler_toggled              (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
 
+}
+
+
+void
+on_quit_activate                       (GtkMenuItem     *menuitem,
+                                        gpointer         user_data)
+{
+	gtk_main_quit();
+}
+
+
+gboolean
+on_GAria2_delete_event                 (GtkWidget       *widget,
+                                        GdkEvent        *event,
+                                        gpointer         user_data)
+{
+	gtk_main_quit();
+	return FALSE;
 }
 
