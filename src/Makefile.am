@@ -12,7 +12,8 @@ garia2_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
-	preference.c preference.h
+	preference.c preference.h \
+	tree.c tree.h
 
 garia2_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

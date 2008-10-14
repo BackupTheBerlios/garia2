@@ -57,7 +57,7 @@ create_GAria2 (void)
   GtkWidget *toolbutton5;
   GtkWidget *toolbutton6;
   GtkWidget *scrolledwindow1;
-  GtkWidget *treeview1;
+  GtkWidget *treeview;
   GtkAccelGroup *accel_group;
 
   accel_group = gtk_accel_group_new ();
@@ -172,9 +172,9 @@ create_GAria2 (void)
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow1), GTK_SHADOW_IN);
 
-  treeview1 = gtk_tree_view_new ();
-  gtk_widget_show (treeview1);
-  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview1);
+  treeview = gtk_tree_view_new ();
+  gtk_widget_show (treeview);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow1), treeview);
 
   g_signal_connect ((gpointer) GAria2, "delete_event",
                     G_CALLBACK (on_GAria2_delete_event),
@@ -253,7 +253,7 @@ create_GAria2 (void)
   GLADE_HOOKUP_OBJECT (GAria2, toolbutton5, "toolbutton5");
   GLADE_HOOKUP_OBJECT (GAria2, toolbutton6, "toolbutton6");
   GLADE_HOOKUP_OBJECT (GAria2, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (GAria2, treeview1, "treeview1");
+  GLADE_HOOKUP_OBJECT (GAria2, treeview, "treeview");
 
   gtk_window_add_accel_group (GTK_WINDOW (GAria2), accel_group);
 

@@ -34,17 +34,18 @@ main (int argc, char *argv[])
 	add_pixmap_directory (PACKAGE_DATA_DIR "/" PACKAGE "/pixmaps");
 
 	load_settings(&g_preference);
-	
+
   /*
    * The following code was added by Glade to create one of each component
    * (except popup menus), just so that you see something after building
    * the project. Delete any components that you don't want shown initially.
    */
 	g_GAria2 = create_GAria2 ();
+	init_tree(GTK_TREE_VIEW(lookup_widget(GTK_WIDGET(g_GAria2), "treeview")));
 	gtk_widget_show (g_GAria2);
 
 //  preferences = create_preferences ();
-//  gtk_widget_show (preferences);  
+//  gtk_widget_show (preferences);
  // gtk_widget_show (aboutdialog);
 //  filechooserdialog = create_filechooserdialog ();
 //  gtk_widget_show (filechooserdialog);
