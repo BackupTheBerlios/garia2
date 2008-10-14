@@ -1,0 +1,14 @@
+======
+GAria2
+======
+
+.. contents::
+
+About
+=====
+
+GAria2 is frontend to aria2c download manager. Main feature of GAria2 is schedule 
+downloads. For example you can schedule to download from 23:00 to 9:00, 
+and be sure that all transfer will accure only in this time interval.
+
+GAria2 support HTTP/FTP/TORRENT protocols
